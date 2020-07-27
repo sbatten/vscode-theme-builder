@@ -14,8 +14,29 @@ const githubColors = {
 
 const githubColorIndex = 4;
 
-const colors = {
+// #f9826c
 
+const colors = {
+  light: {
+    accent0: githubColors.red[githubColorIndex],
+    accent1: githubColors.orange[githubColorIndex],
+    accent2: githubColors.yellow[githubColorIndex],
+    accent3: githubColors.green[githubColorIndex],
+    accent4: githubColors.blue[githubColorIndex],
+    accent5: githubColors.blue[githubColorIndex - 1],
+    accent6: githubColors.purple[githubColorIndex],
+    accent7: githubColors.pink[githubColorIndex],
+
+    shade0: githubColors.gray[9],
+    shade1: githubColors.gray[7],
+    shade2: githubColors.gray[6],
+    shade3: githubColors.gray[5],
+    shade4: githubColors.gray[4],
+    shade5: githubColors.gray[3],
+    shade6: githubColors.gray[1],
+    shade7: "#fff"
+
+  },
   dark: {
 
     accent0: githubColors.red[githubColorIndex],
@@ -27,41 +48,17 @@ const colors = {
     accent6: githubColors.purple[githubColorIndex],
     accent7: githubColors.pink[githubColorIndex],
 
-    shade0: githubColors[9],
-    shade1: githubColors[7],
-    shade2: githubColors[6],
-    shade3: githubColors[5],
-    shade4: githubColors[4],
-    shade5: githubColors[3],
-    shade6: githubColors[2],
-    shade7: githubColors[0]
+    shade0: githubColors.gray[9],
+    shade1: githubColors.gray[7],
+    shade2: githubColors.gray[6],
+    shade3: githubColors.gray[5],
+    shade4: githubColors.gray[4],
+    shade5: githubColors.gray[3],
+    shade6: githubColors.gray[1],
+    shade7: githubColors.gray[0]
 
 
-  },
-
-  light: {
-
-    accent0: githubColors.red[githubColorIndex + 2],
-    accent1: githubColors.orange[githubColorIndex + 2],
-    accent2: githubColors.yellow[githubColorIndex + 2],
-    accent3: githubColors.green[githubColorIndex + 2],
-    accent4: githubColors.blue[githubColorIndex - 1 + 2],
-    accent5: githubColors.blue[githubColorIndex + 2],
-    accent6: githubColors.purple[githubColorIndex + 2],
-    accent7: githubColors.pink[githubColorIndex + 2],
-
-    shade0: githubColors[9],
-    shade1: githubColors[7],
-    shade2: githubColors[6],
-    shade3: githubColors[5],
-    shade4: githubColors[4],
-    shade5: githubColors[3],
-    shade6: githubColors[2],
-    shade7: githubColors[0]
-
-  },
+  }
 };
 
-module.exports = {
-  colors
-};
+module.exports = colors;
