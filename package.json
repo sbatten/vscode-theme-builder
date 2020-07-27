@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@types/chroma-js": "^2.0.0",
+    "@types/node": "^14.0.26",
+    "chroma-js": "^2.1.0"
+  }
+}
