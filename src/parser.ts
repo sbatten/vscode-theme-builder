@@ -1,10 +1,7 @@
 const parseArgs = require('minimist');
 import * as path from 'path';
-<<<<<<< HEAD
 import * as inquirer from 'inquirer';
-=======
 import * as fs from 'fs-extra';
->>>>>>> a0f6b5418a7b2da32331eddb3b776bbc5ba7582a
 
 const { create, build, printUsage } = require('./lib');
 const colors = require('../templates/palette/index');
