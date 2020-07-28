@@ -153,7 +153,336 @@ function createTheme(palette) {
             "settings.modifiedItemIndicator": palette.blue,
             "welcomePage.buttonBackground": palette.shade6,
             "welcomePage.buttonHoverBackground": palette.shade5 // colorPalette.gray[2],
-        }
+        },
+        semanticHighlighting: true,
+        tokenColors: [
+          {
+            scope: [
+                "comment",
+                "punctuation.definition.comment",
+                "string.comment"
+            ],
+            settings: {
+              foreground: palette.shade3,
+            },
+          },
+          {
+            scope: [
+              "constant",
+              "entity.name.constant",
+              "variable.other.constant",
+              "variable.language",
+            ],
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: [
+                "entity",
+                "entity.name"
+            ],
+            settings: {
+              foreground: chroma(palette.purple).darken().hex(),
+            },
+          },
+          {
+            scope: "variable.parameter.function",
+            settings: {
+              foreground: editorForeground,
+            },
+          },
+          {
+            scope: "entity.name.tag",
+            settings: {
+              foreground: chroma(palette.green).darken(2).hex(),
+            },
+          },
+          {
+            scope: "keyword",
+            settings: {
+              foreground: chroma(palette.red).darken(1).hex(),
+            },
+          },
+          {
+            scope: [
+                "storage",
+                "storage.type"
+            ],
+            settings: {
+              foreground: chroma(palette.red).darken(1).hex(),
+            },
+          },
+          {
+            scope: [
+              "storage.modifier.package",
+              "storage.modifier.import",
+              "storage.type.java",
+            ],
+            settings: {
+              foreground: editorForeground,
+            },
+          },
+          {
+            scope: [
+              "string",
+              "punctuation.definition.string",
+              "string punctuation.section.embedded source",
+            ],
+            settings: {
+              foreground: chroma(palette.blue).dark(4).hex(),
+            },
+          },
+          {
+            scope: "support",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "meta.property-name",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "variable",
+            settings: {
+              foreground: chroma(palette.orange).darken(2).hex(),
+            },
+          },
+          {
+            scope: "variable.other",
+            settings: {
+              foreground: editorForeground,
+            },
+          },
+          {
+            scope: "invalid.broken",
+            settings: {
+              fontStyle: "italic",
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: "invalid.deprecated",
+            settings: {
+              fontStyle: "italic",
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: "invalid.illegal",
+            settings: {
+              fontStyle: "italic",
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: "invalid.unimplemented",
+            settings: {
+              fontStyle: "italic",
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: "carriage-return",
+            settings: {
+              fontStyle: "italic underline",
+              background: chroma(palette.red).darken(1).hex(),
+              foreground: palette.white,
+              content: "^M",
+            },
+          },
+          {
+            scope: "message.error",
+            settings: {
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: "string source",
+            settings: {
+              foreground: editorForeground,
+            },
+          },
+          {
+            scope: "string variable",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: ["source.regexp", "string.regexp"],
+            settings: {
+              foreground: chroma(palette.blue).darken(4).hex(),
+            },
+          },
+          {
+            scope: [
+              "string.regexp.character-class",
+              "string.regexp constant.character.escape",
+              "string.regexp source.ruby.embedded",
+              "string.regexp string.regexp.arbitrary-repitition",
+            ],
+            settings: {
+              foreground: chroma(palette.blue).darken(4).hex(),
+            },
+          },
+          {
+            scope: "string.regexp constant.character.escape",
+            settings: {
+              fontStyle: "bold",
+              foreground: chroma(palette.green).darken(2).hex(),
+            },
+          },
+          {
+            scope: "support.constant",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "support.variable",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "meta.module-reference",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "punctuation.definition.list.begin.markdown",
+            settings: {
+              foreground: chroma(palette.orange).darken(2).hex(),
+            },
+          },
+          {
+            scope: ["markup.heading", "markup.heading entity.name"],
+            settings: {
+              fontStyle: "bold",
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "markup.quote",
+            settings: {
+              foreground: chroma(palette.green).darken(2).hex(),
+            },
+          },
+          {
+            scope: "markup.italic",
+            settings: {
+              fontStyle: "italic",
+              foreground: editorForeground,
+            },
+          },
+          {
+            scope: "markup.bold",
+            settings: {
+              fontStyle: "bold",
+              foreground: editorForeground,
+            },
+          },
+          {
+            scope: "markup.raw",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: [
+              "markup.deleted",
+              "meta.diff.header.from-file",
+              "punctuation.definition.deleted",
+            ],
+            settings: {
+              background: chroma(palette.red).brighten(4).hex(),
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: [
+              "markup.inserted",
+              "meta.diff.header.to-file",
+              "punctuation.definition.inserted",
+            ],
+            settings: {
+              background: chroma(palette.green).brighten(4).hex(),
+              foreground: chroma(palette.green).darken(2).hex(),
+            },
+          },
+          {
+            scope: ["markup.changed", "punctuation.definition.changed"],
+            settings: {
+              background: chroma(palette.orange).brighten(3).hex(),
+              foreground: chroma(palette.orange).darken(2).hex(),
+            },
+          },
+          {
+            scope: ["markup.ignored", "markup.untracked"],
+            settings: {
+              foreground: palette.shade6,
+              background: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "meta.diff.range",
+            settings: {
+              foreground: chroma(palette.purple).darken().hex(),
+              fontStyle: "bold",
+            },
+          },
+          {
+            scope: "meta.diff.header",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "meta.separator",
+            settings: {
+              fontStyle: "bold",
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: "meta.output",
+            settings: {
+              foreground: chroma(palette.blue).darken(2).hex(),
+            },
+          },
+          {
+            scope: [
+              "brackethighlighter.tag",
+              "brackethighlighter.curly",
+              "brackethighlighter.round",
+              "brackethighlighter.square",
+              "brackethighlighter.angle",
+              "brackethighlighter.quote",
+            ],
+            settings: {
+              foreground: palette.shade2,
+            },
+          },
+          {
+            scope: "brackethighlighter.unmatched",
+            settings: {
+              foreground: chroma(palette.red).darken(3).hex(),
+            },
+          },
+          {
+            scope: ["constant.other.reference.link", "string.other.link"],
+            settings: {
+              foreground: chroma(palette.blue).darken(4).hex(),
+              fontStyle: "underline",
+            },
+          },
+        ],
+      };
     };
 }
 module.exports = {
