@@ -15,9 +15,11 @@ export function create(type: 'style' | 'palette' | 'all') {
   }
 }
 
-export function build(palette, style, name) {
+export function build(palette: any, style: any, name: string, outDir: string) {
   const theme = style.createTheme(palette, "light");
-  fs.writeFileSync(`vsctb-theme-${name}.json`,
+  const outputPath = path.join(outDir, `vsctb-theme-${name}.json`);
+
+  fs.writeFileSync(outputPath,
     JSON.stringify({
       name,
       colors: theme.colors

@@ -3,15 +3,15 @@ import * as path from 'path';
 import * as inquirer from 'inquirer';
 import * as fs from 'fs-extra';
 
-const { create, build, printUsage } = require('./lib');
-const colors = require('../templates/palette/index');
+import { create, build, printUsage } from './lib';
+import * as colors from '../templates/palette/index';
 import * as style from '../templates/style/index';
 
 interface ICliOptions {
   themeName: string,
   style: string,
   palette: string,
-  outputPath: string
+  outputPath?: string
 }
 
 const questions = [
@@ -117,7 +117,7 @@ function _build(args) {
   const palette = (args.palette ? resolve(args.palette) : colors);
   const styleObj = (args.style ? resolve(args.style) : style);
   const appName = (args.name ? args.name : path.basename(process.cwd()));
-  build(palette, styleObj, appName); 
+  build(palette, styleObj, appName, args.outputPath || './themes'); 
 }
 
 async function _runPrompt() {
@@ -126,8 +126,7 @@ async function _runPrompt() {
   const options: ICliOptions = {
     themeName: name,
     style: customStyle,
-    palette: customPalette,
-    outputPath: './'
+    palette: customPalette
   }
   return options;
 }
@@ -142,7 +141,6 @@ function _buildConfig(args) {
     themeName: args.name,
     style: (vsctbProvidesAll ? true : args.style),
     palette: (vsctbProvidesAll ? true : args.palette),
-    outputPath: './'
   }
   return options;
 }
