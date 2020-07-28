@@ -1,8 +1,9 @@
 const parseArgs = require('minimist');
+import * as path from 'path';
 
 const { create, build, printUsage } = require('./lib');
 const colors = require('../templates/palette/index');
-const createTheme = require('../templates/style/index');
+import * as style from '../templates/style/index';
 
 
 export function parse() {
@@ -11,7 +12,8 @@ export function parse() {
       h: 'help',
       p: 'palette',
       s: 'style',
-      a: 'all'
+      a: 'all',
+      n: 'name'
     },
   });
 
@@ -21,7 +23,6 @@ export function parse() {
     return
   }
 
-  console.log(mode)
   switch(mode[0]) {
     case 'new': {
       _initialize(args);
@@ -54,6 +55,7 @@ function _initialize(args) {
 
 function _build(args) {
   const palette = (args.palette ? require(args.palette) : colors);
-  const style = (args.style ? require(args.style) : createTheme);
-  build(palette, style) 
+  const styleObj = (args.style ? require(args.style) : style);
+  const appName = (args.name ? args.name : path.basename(process.cwd()));
+  build(palette, styleObj, appName); 
 }

@@ -12,7 +12,7 @@ function createTheme(palette) {
             "textLink.activeForeground": chroma(palette.accent4).darken(2).hex(),
             "textBlockQuote.background": palette.shade7,
             "textBlockQuote.border": palette.shade5,
-            "textCodeBlock.background": palette.shade6,
+            "textCodeBlock.background": palette.createThemeshade6,
             "textPreformat.foreground": palette.shade2,
             "textSeparator.foreground": palette.shade5,
             "button.background": chroma(palette.accent3).darken(1).hex(),
@@ -156,4 +156,6 @@ function createTheme(palette) {
         }
     };
 }
-module.exports = createTheme;
+module.exports = {
+  createTheme
+};
