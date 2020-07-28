@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "A basic style for use with VS Code Theme Builder",
   "main": "index.js",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chroma-js": "^2.1.0"
+  }
 }

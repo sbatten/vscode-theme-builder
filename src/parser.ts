@@ -1,5 +1,6 @@
 const parseArgs = require('minimist');
 import * as path from 'path';
+import * as fs from 'fs-extra';
 
 const { create, build, printUsage } = require('./lib');
 const colors = require('../templates/palette/index');
@@ -53,9 +54,18 @@ function _initialize(args) {
   }
 }
 
+function resolve(pathOrModule: string) {
+  const fullPath = path.join(process.cwd(), pathOrModule);
+  if (fs.existsSync(fullPath)) {
+    return require(fullPath);
+  }
+
+  return require(pathOrModule);
+}
+
 function _build(args) {
-  const palette = (args.palette ? require(args.palette) : colors);
-  const styleObj = (args.style ? require(args.style) : style);
+  const palette = (args.palette ? resolve(args.palette) : colors);
+  const styleObj = (args.style ? resolve(args.style) : style);
   const appName = (args.name ? args.name : path.basename(process.cwd()));
   build(palette, styleObj, appName); 
 }
