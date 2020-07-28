@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.3",
     "minimist": "^1.2.5"
   },
   "scripts": {
@@ -19,5 +20,5 @@
   },
   "bin": {
     "vsctb": "dist/index.js"
-  } 
+  }
 }
