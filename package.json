@@ -10,10 +10,12 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "fs-extra": "^9.0.1"
+    "fs-extra": "^9.0.1",
+    "minimist": "^1.2.5"
   },
   "scripts": {
-    "build": "tsc && copyfiles templates/** dist"
+    "build": "tsc && copyfiles templates/** dist",
+    "compile": "tsc ./src/**.ts"
   },
   "bin": "dist/index.js"
 }
