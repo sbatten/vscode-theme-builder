@@ -1,13 +1,25 @@
 const colors = {
-  accent0: "#ea4a5a", 
-  accent1: "#fb8532", 
-  accent2: "#ffdf5d", 
-  accent3: "#34d058",
-  accent4: "#2188ff", 
-  accent5: "#2188ff", 
-  accent6: "#8a63d2", 
-  accent7: "#ec6cb9",
+  // Black and White
+  black: "#24292e",
+  white: "#ffffff",
+  
+  // Traditional Colors
+  red: "#ea4a5a", //0
+  orange: "#fb8532", //1
+  yellow: "#ffdf5d", //2
+  green: "#34d058", //3
+  cyan: "#2188ff", //4
+  blue: "#2188ff", //5
+  purple: "#8a63d2", //6
+  magnenta: "#ec6cb9",//7
 
+  // Accent Colors
+  accent0: "#34d058",
+  accent1: "#2188ff",
+  accent2: "#fb8532",
+
+  // Background to Foreground Spectrum
+  // Sort from darkest to brightest
   shade0: "#24292e",
   shade1: "#444d56",
   shade2: "#586069",
