@@ -1,0 +1,7 @@
+{
+  "name": "vsctb-palette-template",
+  "version": "1.0.0",
+  "description": "A basic color palette for use with VS Code Theme Builder",
+  "main": "index.js",
+  "license": "ISC"
+}

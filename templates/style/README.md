@@ -1,0 +1,4 @@
+# Creating a VS Code Theme Builder Style
+VS Code Theme Builder uses styles to define a general look and feel for a theme when generated using a predefined and standard color palette definition. In the [Style Definition](.\index.js), you must define a function that takes in a VS Code Theme Builder color palette and returns values for desired VS Code Theme keys. It is best to rely solely on the colors defined in the palette which are `shade0-7` and `accent0-7` to allow the best chance for compatibility when changing color palettes.
+
+After modifying a style to your liking, it should be published as an NPM module for reuse with other color palettes though you can use it directly with your color palette in the VS Code Theme Builder without publishing. Before publishing, be sure to update your `package.json` to give your color style package a name.

@@ -1,0 +1,4 @@
+# Creating a VS Code Theme Builder Color Palette
+VS Code Theme Builder uses color palettes defined as small NPM modules that define 8 accent colors and 8 shades, each numbered 0 through 7. In the default template, `accent0` refers to the red color in the palette and `accent7` refers the magenta color and fills the the rest of the rainbow in between. The colors are not too bright and not too dark to allow a VS Code Theme Builder style to brighten or darken them several shades. The shades go from the darkest black to the brightest white with shades of grey in between from 0 to 7.
+
+After modifying a palette to your liking, it should be published as an NPM module for reuse with other styles though you can use it directly with your style in the VS Code Theme Builder without publishing. Before publishing, be sure to update your `package.json` to give your color palette package a name.
