@@ -1,173 +1,144 @@
 const chroma = require("chroma-js");
 function createTheme(palette, variant) {
   const vary = (light, dark) => variant === 'light' ? light : dark;
-  const invert = (c) => {
-    const lightness = chroma(c).get('hsl.l');
-    return chroma(c).set('hsl.l', 100 - lightness).hex();
-  }
-
-  var workbenchForeground = vary(palette.shade1, palette.shade2);
-  var editorForeground = vary(palette.shade0, palette.shade2);
+  const invert = (c) => chroma(c).hsl().lightness(100 - chroma(c).lightness()).hex();
+  
+  var workbenchForeground = palette.shade1;
+  var editorForeground = palette.shade0;
 
   return {
     colors: {
-      focusBorder: vary(palette.accent1, chroma(palette.accent1).brighten().hex()),
-      foreground: vary(palette.shade2, palette.shade2),
+      focusBorder: palette.accent1,
+      foreground: palette.shade2,
       descriptionForeground: palette.shade3,
       errorForeground: chroma(palette.red).darken(2).hex(),
-
-      "textLink.foreground": vary(chroma(palette.accent1).darken(1).hex(), chroma(palette.accent1).darken(2).hex()),
-      "textLink.activeForeground": vary(chroma(palette.accent1).darken(2).hex(), chroma(palette.accent1).darken(3).hex()),
+      "textLink.foreground": chroma(palette.accent1).darken(1).hex(),
+      "textLink.activeForeground": chroma(palette.accent1).darken(2).hex(),
       "textBlockQuote.background": palette.shade7,
       "textBlockQuote.border": palette.shade5,
       "textCodeBlock.background": palette.createThemeshade6,
       "textPreformat.foreground": palette.shade2,
       "textSeparator.foreground": palette.shade5,
-
-      "button.background": vary(chroma(palette.accent0).darken(1).hex(), chroma(palette.accent0).brighten(2).hex()),
-      "button.foreground": vary(palette.shade7, chroma(palette.accent0).darken(4).hex()),
-      "button.hoverBackground": vary(chroma(palette.accent0).brighten().hex(), chroma(palette.accent0).brighten(1).hex()),
-
-      "checkbox.background": vary(palette.shade7, palette.shade5),
-      "checkbox.border": vary(palette.shade5, palette.shade7),
-
-      "dropdown.background": vary(palette.shade7, palette.shade6),
-      "dropdown.border": vary(palette.shade5, palette.shade7),
+      "button.background": chroma(palette.accent0).darken(1).hex(),
+      "button.foreground": palette.shade7,
+      "button.hoverBackground": chroma(palette.accent0).brighten().hex(),
+      "checkbox.background": palette.shade7,
+      "checkbox.border": palette.shade5,
+      "dropdown.background": palette.shade7,
+      "dropdown.border": palette.shade5,
       "dropdown.foreground": workbenchForeground,
       "dropdown.listBackground": palette.shade7,
-
-      "input.background": vary(palette.shade7, palette.shade6),
-      "input.border": vary(palette.shade5, palette.shade7),
+      "input.background": palette.shade7,
+      "input.border": palette.shade5,
       "input.foreground": workbenchForeground,
-      "input.placeholderForeground": vary(palette.shade4, palette.shade3),
-
-      "badge.foreground": vary(chroma(palette.accent1).darken(2).hex(), chroma(palette.accent1).darken(3).hex()),
-      "badge.background": vary(chroma(palette.accent1).brighten(3).hex(), chroma(palette.accent1).brighten(2).hex()),
-
-      "progressBar.background": vary(palette.accent1, palette.accent1),
-
+      "input.placeholderForeground": palette.shade4,
+      "badge.foreground": chroma(palette.accent1).darken(2).hex(),
+      "badge.background": chroma(palette.accent1).brighten(3).hex(),
+      "progressBar.background": palette.accent1,
       "titleBar.activeForeground": workbenchForeground,
       "titleBar.activeBackground": palette.shade7,
       "titleBar.inactiveForeground": palette.shade3,
-      "titleBar.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken().hex()), // #1f2428
-      "titleBar.border": vary(palette.shade5, palette.shade7),
-
+      "titleBar.inactiveBackground": palette.shade6,
+      "titleBar.border": palette.shade5,
       "activityBar.foreground": workbenchForeground,
       "activityBar.inactiveForeground": palette.shade4,
-      "activityBar.background": vary(palette.shade7, palette.shade0),
-      "activityBarBadge.foreground": vary(palette.shade7, palette.black),
+      "activityBar.background": palette.shade7,
+      "activityBarBadge.foreground": palette.shade7,
       "activityBarBadge.background": palette.accent1,
       "activityBar.activeBorder": chroma(palette.accent2).brighten().hex(),
-      "activityBar.border": vary(palette.shade5, palette.shade7),
-
+      "activityBar.border": palette.shade5,
       "sideBar.foreground": palette.shade2,
-      "sideBar.background": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
-      "sideBar.border": vary(palette.shade5, palette.shade7),
+      "sideBar.background": palette.shade6,
+      "sideBar.border": palette.shade5,
       "sideBarTitle.foreground": workbenchForeground,
       "sideBarSectionHeader.foreground": workbenchForeground,
-      "sideBarSectionHeader.background": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
-      "sideBarSectionHeader.border": vary(palette.shade5, palette.shade7),
-
+      "sideBarSectionHeader.background": palette.shade6,
+      "sideBarSectionHeader.border": palette.shade5,
       "list.hoverForeground": workbenchForeground,
       "list.inactiveSelectionForeground": workbenchForeground,
       "list.activeSelectionForeground": workbenchForeground,
-      "list.hoverBackground": vary(palette.shade6, palette.shade0),
-      "list.inactiveSelectionBackground": vary(palette.shade5, palette.shade0),
-      "list.activeSelectionBackground": vary(palette.shade4, palette.shade1),
-      "list.inactiveFocusBackground": vary(chroma(palette.accent1).brighten(3).hex(), chroma(palette.shade0).darken().hex()),
-      "list.focusBackground": vary(chroma(palette.accent1).brighten(4).hex(), chroma(palette.accent1).brighten(2).hex()),
-
-      "tree.indentGuidesStroke": vary(palette.shade5, palette.shade6),
-
+      "list.hoverBackground": palette.shade6,
+      "list.inactiveSelectionBackground": palette.shade5,
+      "list.activeSelectionBackground": palette.shade4,
+      "list.inactiveFocusBackground": chroma(palette.accent1).brighten(3).hex(),
+      "list.focusBackground": chroma(palette.accent1).brighten(4).hex(),
+      "tree.indentGuidesStroke": palette.shade5,
       "notificationCenterHeader.foreground": palette.shade3,
-      "notificationCenterHeader.background": vary(palette.shade5, palette.shade7),
+      "notificationCenterHeader.background": palette.shade5,
       "notifications.foreground": workbenchForeground,
-      "notifications.background": vary(palette.shade7, palette.shade6),
-      "notifications.border": vary(palette.shade5, palette.shade7),
+      "notifications.background": palette.shade7,
+      "notifications.border": palette.shade5,
       "notificationsErrorIcon.foreground": chroma(palette.red).darken(1).hex(),
       "notificationsWarningIcon.foreground": chroma(palette.orange).darken(2).hex(),
       "notificationsInfoIcon.foreground": chroma(palette.accent1).darken(2).hex(),
-
       "pickerGroup.border": palette.shade5,
       "pickerGroup.foreground": workbenchForeground,
       "quickInput.background": palette.shade7,
       "quickInput.foreground": workbenchForeground,
-
       "statusBar.foreground": palette.shade2,
-      "statusBar.background": palette.shade7, 
-      "statusBar.border": vary(palette.shade5, palette.shade7),
+      "statusBar.background": palette.shade7,
+      "statusBar.border": palette.shade5,
       "statusBar.noFolderBackground": palette.shade7,
-      "statusBar.debuggingBackground": vary(palette.accent2, invert(palette.accent2)),
-      "statusBar.debuggingForeground": vary(palette.shade7, palette.black),
-
-      "editorGroupHeader.tabsBackground": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
-      "editorGroupHeader.tabsBorder": vary(palette.shade5, palette.shade7),
-      "editorGroup.border": vary(palette.shade5, palette.shade7),
-
+      "statusBar.debuggingBackground": palette.accent2,
+      "statusBar.debuggingForeground": palette.shade7,
+      "editorGroupHeader.tabsBackground": palette.shade6,
+      "editorGroupHeader.tabsBorder": palette.shade5,
+      "editorGroup.border": palette.shade5,
       "tab.activeForeground": workbenchForeground,
       "tab.inactiveForeground": palette.shade3,
-      "tab.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
+      "tab.inactiveBackground": palette.shade6,
       "tab.activeBackground": palette.shade7,
       "tab.hoverBackground": palette.shade7,
       "tab.unfocusedHoverBackground": palette.shade7,
-      "tab.border": vary(palette.shade5, palette.shade7),
-      "tab.unfocusedActiveBorderTop": vary(palette.shade5, palette.shade7),
+      "tab.border": palette.shade5,
+      "tab.unfocusedActiveBorderTop": palette.shade5,
       "tab.activeBorder": palette.shade7,
       "tab.unfocusedActiveBorder": palette.shade7,
-      "tab.activeBorderTop": vary(palette.accent2, chroma(palette.accent2).brighten().hex()),
-
+      "tab.activeBorderTop": palette.accent2,
       "breadcrumb.foreground": palette.shade3,
       "breadcrumb.focusForeground": workbenchForeground,
       "breadcrumb.activeSelectionForeground": palette.shade2,
-      "breadcrumbPicker.background": vary(palette.shade7, palette.shade0),
-
+      "breadcrumbPicker.background": palette.shade7,
       "editor.foreground": editorForeground,
-      "editor.background": vary(palette.shade7, palette.shade7),
-      "editorWidget.background": vary(palette.shade6, chroma(palette.shade6).darken(1).hex()),
-      "editor.foldBackground": vary(palette.shade7, chroma(palette.shade7).darken(1).hex()),
-      "editor.lineHighlightBackground": vary(palette.shade6, chroma(palette.shade6).darken(0.5).hex()),
-      "editorLineNumber.foreground": vary(palette.shade5, palette.shade5),
+      "editor.background": palette.shade7,
+      "editorWidget.background": palette.shade6,
+      "editor.foldBackground": palette.shade7,
+      "editor.lineHighlightBackground": palette.shade6,
+      "editorLineNumber.foreground": palette.shade5,
       "editorLineNumber.activeForeground": editorForeground,
-      "editorIndentGuide.background": vary(palette.shade6, palette.shade6),
-      "editorIndentGuide.activeBackground": vary(palette.shade5, palette.shade5),
-      "editorWhitespace.foreground": vary(palette.shade5, palette.shade5),
+      "editorIndentGuide.background": palette.shade6,
+      "editorIndentGuide.activeBackground": palette.shade5,
+      "editorWhitespace.foreground": palette.shade5,
       "editorCursor.foreground": chroma(palette.accent1).darken(3).hex(),
-
-      "editor.findMatchBackground": vary(palette.yellow, chroma(palette.yellow).brighten(1).hex()),
-      "editor.findMatchHighlightBackground": vary(chroma(palette.yellow).alpha(.4).hex(), chroma(palette.yellow).alpha(0.3).hex()),
-      "editor.inactiveSelectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.1).hex(), chroma(palette.accent1).darken(1.5).alpha(.1).hex()),
-      "editor.selectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.2).hex(), chromma(palette.accent1).darken(2).alpha(.2).hex()),
-      "editor.selectionHighlightBackground": vary(chroma(palette.accent0).alpha(.3).hex(), chroma(palette.accent3).brighten(2).hex()),
-      "editor.selectionHighlightBorder": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
-      "editor.wordHighlightBackground": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
-      "editor.wordHighlightStrongBackground": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
-      "editor.wordHighlightBorder": vary(chroma(palette.accent0).darken(2).alpha(.6).hex(),chroma(palette.accent3).alpha(.6).hex()),
-      "editor.wordHighlightStrongBorder": vary(chroma(palette.accent0).darken(2).alpha(.3).hex(),chroma(palette.accent3).alpha(.5).hex()),
-      "editorBracketMatch.background": vary(chroma(palette.accent0).alpha(.3).hex(),chroma(palette.accent3).alpha(.4).hex()),
-      "editorBracketMatch.border": vary(chroma(palette.accent0).alpha(0).hex(),chroma(palette.accent3).alpha(0).hex()),
-
-      "editorGutter.modifiedBackground": vary(palette.blue, chroma(palette.blue).darken(1).hex()),
-      "editorGutter.addedBackground": vary(chroma(palette.green).darken(1).hex(), palette.green),
+      "editor.findMatchBackground": palette.yellow,
+      "editor.findMatchHighlightBackground": chroma(palette.yellow).alpha(.4).hex(),
+      "editor.inactiveSelectionBackground": chroma(palette.accent1).darken(1).alpha(.1).hex(),
+      "editor.selectionBackground": chroma(palette.accent1).darken(1).alpha(.2).hex(),
+      "editor.selectionHighlightBackground": chroma(palette.accent0).alpha(.3).hex(),
+      "editor.selectionHighlightBorder": chroma(palette.accent0).alpha(0).hex(),
+      "editor.wordHighlightBackground": chroma(palette.accent0).alpha(0).hex(),
+      "editor.wordHighlightStrongBackground": chroma(palette.accent0).alpha(0).hex(),
+      "editor.wordHighlightBorder": chroma(palette.accent0).darken(2).alpha(.6).hex(),
+      "editor.wordHighlightStrongBorder": chroma(palette.accent0).darken(2).alpha(.3).hex(),
+      "editorBracketMatch.background": chroma(palette.accent0).alpha(.3).hex(),
+      "editorBracketMatch.border": chroma(palette.accent0).alpha(0).hex(),
+      "editorGutter.modifiedBackground": palette.blue,
+      "editorGutter.addedBackground": chroma(palette.green).darken(1).hex(),
       "editorGutter.deletedBackground": chroma(palette.red).darken(1).hex(),
-
-      "diffEditor.insertedTextBackground": vary(chroma(palette.green).alpha(.2).hex(), chroma(palette.green).alpha(.3).hex()),
-      "diffEditor.removedTextBackground": vary(chroma(palette.red).darken(1).alpha(.25).hex(),chroma(palette.red).darken(1).alpha(.4).hex()),
-
-      "scrollbar.shadow": vary(palette.shade6, palette.shade1),
-      "scrollbarSlider.background": vary(palette.shade5, palette.shade4),
-      "scrollbarSlider.hoverBackground": vary(palette.shade5,palette.shade4),
-      "scrollbarSlider.activeBackground": vary(palette.shade5,palette.shade4),
+      "diffEditor.insertedTextBackground": chroma(palette.green).alpha(.2).hex(),
+      "diffEditor.removedTextBackground": chroma(palette.red).darken(1).alpha(.25).hex(),
+      "scrollbar.shadow": palette.shade6,
+      "scrollbarSlider.background": palette.shade5,
+      "scrollbarSlider.hoverBackground": palette.shade5,
+      "scrollbarSlider.activeBackground": palette.shade5,
       "editorOverviewRuler.border": palette.shade7,
-
-      "panel.background": vary(palette.shade6, chroma(palette.shade0).darken(2).hex()),
-      "panel.border": vary(palette.shade5, palette.white),
+      "panel.background": palette.shade6,
+      "panel.border": palette.shade5,
       "panelTitle.activeBorder": chroma(palette.accent2).darken(2).hex(),
       "panelTitle.activeForeground": workbenchForeground,
       "panelTitle.inactiveForeground": palette.shade3,
-      "panelInput.border": vary(palette.shade5, palette.shade6),
-
+      "panelInput.border": palette.shade5,
       "terminal.foreground": palette.shade2,
-
       "gitDecoration.addedResourceForeground": chroma(palette.green).darken(1).hex(),
       "gitDecoration.modifiedResourceForeground": chroma(palette.blue).darken(2).hex(),
       "gitDecoration.deletedResourceForeground": chroma(palette.red).darken(1).hex(),
@@ -175,15 +146,13 @@ function createTheme(palette, variant) {
       "gitDecoration.ignoredResourceForeground": palette.shade4,
       "gitDecoration.conflictingResourceForeground": chroma(palette.orange).darken(2).hex(),
       "gitDecoration.submoduleResourceForeground": palette.shade4,
-
-      "debugToolBar.background": vary(palette.shade7, chroma(palette.shade0).darken(3).hex()),
-      "editor.stackFrameHighlightBackground": vary(chroma(palette.yellow).brighten(3).hex(),chroma(palette.yellow).darken(3).hex()),
-      "editor.focusedStackFrameHighlightBackground": vary(chroma(palette.yellow).brighten(2).hex(),chroma(palette.yellow).darken(2).hex()),
-
-      "peekViewEditor.matchHighlightBackground": vary(undefined, chroma(palette.yellow).brighten(2).hex()),
-      "peekViewResult.matchHighlightBackground": vary(undefined, chroma(palette.yellow).brighten(2).hex()),
-      "peekViewEditor.background": vary(undefined, palette.shade4),
-      "peekViewResult.background": vary(undefined, palette.shade0),
+      "debugToolBar.background": palette.shade7,
+      "editor.stackFrameHighlightBackground": chroma(palette.yellow).brighten(3).hex(),
+      "editor.focusedStackFrameHighlightBackground": chroma(palette.yellow).brighten(2).hex(),
+      "peekViewEditor.matchHighlightBackground": chroma(palette.yellow).brighten(2).hex(),
+      "peekViewResult.matchHighlightBackground": chroma(palette.yellow).brighten(2).hex(),
+      "peekViewEditor.background": palette.shade4,
+      "peekViewResult.background": palette.shade0,
       "settings.headerForeground": workbenchForeground,
       "settings.modifiedItemIndicator": palette.blue,
       "welcomePage.buttonBackground": palette.shade6,
@@ -198,7 +167,7 @@ function createTheme(palette, variant) {
           "string.comment"
         ],
         settings: {
-          foreground: vary(palette.shade3, palette.shade4)
+          foreground: palette.shade3,
         },
       },
       {
@@ -218,7 +187,7 @@ function createTheme(palette, variant) {
           "entity.name"
         ],
         settings: {
-          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).darken(2).hex())
+          foreground: chroma(palette.purple).darken().hex(),
         },
       },
       {
@@ -236,7 +205,7 @@ function createTheme(palette, variant) {
       {
         scope: "keyword",
         settings: {
-          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).darken(2).hex()),
+          foreground: chroma(palette.red).darken(1).hex(),
         },
       },
       {
@@ -245,7 +214,7 @@ function createTheme(palette, variant) {
           "storage.type"
         ],
         settings: {
-          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).darken(2).hex()),
+          foreground: chroma(palette.red).darken(1).hex(),
         },
       },
       {
@@ -265,7 +234,7 @@ function createTheme(palette, variant) {
           "string punctuation.section.embedded source",
         ],
         settings: {
-          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: chroma(palette.blue).darken(4).hex(),
         },
       },
       {
@@ -324,7 +293,7 @@ function createTheme(palette, variant) {
         scope: "carriage-return",
         settings: {
           fontStyle: "italic underline",
-          background: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).darken(2).hex()),
+          background: chroma(palette.red).darken(1).hex(),
           foreground: palette.white,
           content: "^M",
         },
@@ -467,7 +436,7 @@ function createTheme(palette, variant) {
       {
         scope: "meta.diff.range",
         settings: {
-          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).darken(2).hex()),
+          foreground: chroma(palette.purple).darken().hex(),
           fontStyle: "bold",
         },
       },
