@@ -17,7 +17,7 @@ const colors = {
   accent0: "#34d058",
   accent1: "#2188ff",
   accent2: "#fb8532",
-  accent3: "#17E5E6"
+  accent3: "#17E5E6",
 
   // Background to Foreground Spectrum
   // Sort from darkest to brightest
