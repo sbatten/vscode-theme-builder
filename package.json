@@ -1,5 +1,5 @@
 {
-  "name": "vsc-theme-builder",
+  "name": "vsctb",
   "version": "0.1.0",
   "devDependencies": {
     "@types/chroma-js": "^2.0.0",
