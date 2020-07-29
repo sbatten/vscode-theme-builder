@@ -1,7 +1,10 @@
 const chroma = require("chroma-js");
 function createTheme(palette, variant) {
   const vary = (light, dark) => variant === 'light' ? light : dark;
-  const invert = (c) => chroma(c).hsl().lightness(100 - chroma(c).lightness()).hex();
+  const invert = (c) => {
+    const lightness = chroma(c).get('hsl.l');
+    return chroma(c).set('hsl.l', 100 - lightness).hex();
+  }
 
   var workbenchForeground = vary(palette.shade1, palette.shade2);
   var editorForeground = vary(palette.shade0, palette.shade2);

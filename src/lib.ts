@@ -15,16 +15,19 @@ export function create(type: 'style' | 'palette' | 'all') {
   }
 }
 
-export function build(palette: any, style: any, name: string, outDir: string) {
-  const theme = style.createTheme(palette, "light");
-  const outputPath = path.join(outDir, `vsctb-theme-${name}.json`);
-
-  fs.writeFileSync(outputPath,
-    JSON.stringify({
-      name,
-      colors: theme.colors
-    }, null, 2)
-  );
+export function build(palette: any, style: any, name: string, outDir: string, variant?: 'light' | 'dark') {
+  ['light', 'dark'].forEach(v => {
+    if (variant === undefined || v === variant) {
+      const theme = style.createTheme(palette, v);
+      const outputPath = path.join(outDir, `vsctb-theme-${name}-${v}.json`);
+      fs.writeFileSync(outputPath,
+        JSON.stringify({
+          name,
+          colors: theme.colors
+        }, null, 2)
+      );
+    }
+  });
 }
 
 export function printUsage() {

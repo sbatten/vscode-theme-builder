@@ -11,6 +11,7 @@ interface ICliOptions {
   themeName: string,
   style: string,
   palette: string,
+  variant?: 'light' | 'dark',
   outputPath?: string
 }
 
@@ -53,6 +54,7 @@ export async function parse() {
       p: 'palette',
       s: 'style',
       a: 'all',
+      v: 'variant',
       n: 'name'
     },
   });
@@ -117,7 +119,7 @@ function _build(args) {
   const palette = (args.palette ? resolve(args.palette) : colors);
   const styleObj = (args.style ? resolve(args.style) : style);
   const appName = (args.name ? args.name : path.basename(process.cwd()));
-  build(palette, styleObj, appName, args.outputPath || './themes'); 
+  build(palette, styleObj, appName, args.outputPath || './themes', args.variant); 
 }
 
 async function _runPrompt() {
