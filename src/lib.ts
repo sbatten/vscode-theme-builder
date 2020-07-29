@@ -23,7 +23,10 @@ export function build(palette: any, style: any, name: string, outDir: string, va
       fs.writeFileSync(outputPath,
         JSON.stringify({
           name,
-          colors: theme.colors
+          type: v,
+          colors: theme.colors,
+          tokenColors: theme.tokenColors,
+          semanticHighlighting: theme.semanticHighlighting
         }, null, 2)
       );
     }
