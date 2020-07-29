@@ -1,6 +1,6 @@
 const colors = {
   // Black and White
-  black: "#24292e",
+  black: "#1b1f23",
   white: "#ffffff",
   
   // Traditional Colors

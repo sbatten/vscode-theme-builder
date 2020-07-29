@@ -8,6 +8,7 @@ function createTheme(palette, variant) {
   
   var workbenchForeground = vary(palette.shade1, palette.shade5);
   var editorForeground = vary(palette.shade0, palette.shade5);
+  var darkWorkbenchBorder = palette.black;
 
   return {
     colors: {
@@ -29,15 +30,15 @@ function createTheme(palette, variant) {
       "button.hoverBackground": vary(chroma(palette.accent0).brighten().hex(), chroma(palette.green).darken(1).hex()),
 
       "checkbox.background": vary(palette.shade7, palette.shade2),
-      "checkbox.border": vary(palette.shade5, palette.shade0),
+      "checkbox.border": vary(palette.shade5, darkWorkbenchBorder),
 
       "dropdown.background": vary(palette.shade7, palette.shade1),
-      "dropdown.border": vary(palette.shade5, palette.shade0),
+      "dropdown.border": vary(palette.shade5, darkWorkbenchBorder),
       "dropdown.foreground": workbenchForeground,
       "dropdown.listBackground": vary(palette.shade7, palette.shade0),
 
       "input.background": vary(palette.shade7, palette.shade1),
-      "input.border": vary(palette.shade5, palette.shade0),
+      "input.border": vary(palette.shade5, darkWorkbenchBorder),
       "input.foreground": workbenchForeground,
       "input.placeholderForeground": vary(palette.shade4, palette.shade4),
 
@@ -50,7 +51,7 @@ function createTheme(palette, variant) {
       "titleBar.activeBackground": vary(palette.shade7, palette.shade0),
       "titleBar.inactiveForeground": vary(palette.shade3, palette.shade4),
       "titleBar.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
-      "titleBar.border": vary(palette.shade5, palette.shade0),
+      "titleBar.border": vary(palette.shade5, darkWorkbenchBorder),
 
       "activityBar.foreground": workbenchForeground,
       "activityBar.inactiveForeground": vary(palette.shade4, palette.shade3),
@@ -58,15 +59,15 @@ function createTheme(palette, variant) {
       "activityBarBadge.foreground": vary(palette.shade7, palette.shade7),
       "activityBarBadge.background": vary(palette.accent1, palette.accent1),
       "activityBar.activeBorder": chroma(palette.accent2).brighten().hex(),
-      "activityBar.border": vary(palette.shade5, palette.shade0),
+      "activityBar.border": vary(palette.shade5, darkWorkbenchBorder),
 
       "sideBar.foreground": vary(palette.shade2, palette.shade5),
       "sideBar.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
-      "sideBar.border": vary(palette.shade5, palette.shade0),
+      "sideBar.border": vary(palette.shade5, darkWorkbenchBorder),
       "sideBarTitle.foreground": workbenchForeground,
       "sideBarSectionHeader.foreground": workbenchForeground,
       "sideBarSectionHeader.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
-      "sideBarSectionHeader.border": vary(palette.shade5, palette.shade0),
+      "sideBarSectionHeader.border": vary(palette.shade5, darkWorkbenchBorder),
 
       "list.hoverForeground": workbenchForeground,
       "list.inactiveSelectionForeground": workbenchForeground,
@@ -83,7 +84,7 @@ function createTheme(palette, variant) {
       "notificationCenterHeader.background": vary(palette.shade5, palette.shade0),
       "notifications.foreground": workbenchForeground,
       "notifications.background": vary(palette.shade7, palette.shade1),
-      "notifications.border": vary(palette.shade5, palette.shade0),
+      "notifications.border": vary(palette.shade5, darkWorkbenchBorder),
       "notificationsErrorIcon.foreground": vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(1).hex()),
       "notificationsWarningIcon.foreground": vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
       "notificationsInfoIcon.foreground": vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
@@ -95,14 +96,14 @@ function createTheme(palette, variant) {
 
       "statusBar.foreground": vary(palette.shade2, palette.shade5),
       "statusBar.background": vary(palette.shade7, palette.shade0),
-      "statusBar.border": vary(palette.shade5, palette.shade0),
+      "statusBar.border": vary(palette.shade5, darkWorkbenchBorder),
       "statusBar.noFolderBackground": vary(palette.shade7, palette.shade0),
       "statusBar.debuggingBackground": invert(palette.accent2),
       "statusBar.debuggingForeground": vary(palette.shade7, palette.shade7),
 
       "editorGroupHeader.tabsBackground": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "editorGroupHeader.tabsBorder": vary(palette.shade5, palette.shade0),
-      "editorGroup.border": vary(palette.shade5, palette.shade0),
+      "editorGroup.border": vary(palette.shade5, darkWorkbenchBorder),
 
       "tab.activeForeground": workbenchForeground,
       "tab.inactiveForeground": vary(palette.shade3, palette.shade4),
@@ -110,7 +111,7 @@ function createTheme(palette, variant) {
       "tab.activeBackground": vary(palette.shade7, palette.shade0),
       "tab.hoverBackground": vary(palette.shade7, palette.shade0),
       "tab.unfocusedHoverBackground": vary(palette.shade7, palette.shade0),
-      "tab.border": vary(palette.shade5, palette.shade0),
+      "tab.border": vary(palette.shade5, darkWorkbenchBorder),
       "tab.unfocusedActiveBorderTop": vary(palette.shade5, palette.shade0),
       "tab.activeBorder": vary(palette.shade7, palette.shade0),
       "tab.unfocusedActiveBorder": vary(palette.shade7, palette.shade0),
@@ -158,10 +159,10 @@ function createTheme(palette, variant) {
       "scrollbarSlider.background": vary(palette.shade5, palette.shade4),
       "scrollbarSlider.hoverBackground": vary(palette.shade5,palette.shade4),
       "scrollbarSlider.activeBackground": vary(palette.shade5,palette.shade4),
-      "editorOverviewRuler.border": vary(palette.shade7, palette.shade0),
+      "editorOverviewRuler.border": vary(palette.shade7, darkWorkbenchBorder),
 
       "panel.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
-      "panel.border": vary(palette.shade5, palette.shade0),
+      "panel.border": vary(palette.shade5, darkWorkbenchBorder),
       "panelTitle.activeBorder": vary(chroma(palette.accent2).darken(2).hex(),chroma(palette.accent2).darken(2).hex()),
       "panelTitle.activeForeground": workbenchForeground,
       "panelTitle.inactiveForeground": vary(palette.shade3, palette.shade4),
