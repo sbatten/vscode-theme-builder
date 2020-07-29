@@ -1,6 +1,6 @@
 {
   "name": "vscode-theme-builder",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "devDependencies": {
     "@types/chroma-js": "^2.0.0",
     "@types/fs-extra": "^9.0.1",
