@@ -132,8 +132,17 @@ function resolve(pathOrModule: string) {
 }
 
 function _build(args) {
-  const palette = (args.palette ? resolve(args.palette) : colors);
-  const styleObj = (args.style ? resolve(args.style) : style);
+  const errorLog = (input) => {
+    return `A ${input} was not provided. Please provide a ${input}\n`;
+  }
+  if (!args.palette || !args.style) {
+    if (!args.palette) console.log(errorLog('palette'));
+    if (!args.style) console.log(errorLog('sytle'));
+    console.log('Usage: vsctb create --style=<your style> --palette=<your palette>');
+    return;
+  }
+  const palette = resolve(args.palette);'Usage: vsctb create --style=<your style> --palette=<your palette>'
+  const styleObj = resolve(args.style);
   const appName = (args.name ? args.name : path.basename(process.cwd()));
   build(palette, styleObj, appName, args.outputPath || './themes', args.variant); 
 }
@@ -156,8 +165,11 @@ async function _runPrompt() {
 // In the case that the "--all" flag is provide during the "new" command, the 
 // function will set the boolean. If not, then it grabs the value from args
 // which can either be a string, true, or undefined.
+//
+// The args object will always have 1 key, the underscore property. If length
+// is one then the only command
 function _buildConfig(args) {
-  const vsctbProvidesAll: boolean = args.all;
+  const vsctbProvidesAll: boolean = (args.all || Object.keys(args).length == 1);
   const options: ICliOptions = {
     themeName: args.name,
     style: (vsctbProvidesAll ? true : args.style),
