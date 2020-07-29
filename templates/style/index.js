@@ -156,9 +156,9 @@ function createTheme(palette, variant) {
       "diffEditor.removedTextBackground": vary(chroma(palette.red).darken(1).alpha(.25).hex(),chroma(palette.red).darken(1).alpha(.4).hex()),
 
       "scrollbar.shadow": vary(palette.shade6, palette.shade1),
-      "scrollbarSlider.background": vary(palette.shade5, palette.shade4),
-      "scrollbarSlider.hoverBackground": vary(palette.shade5,palette.shade4),
-      "scrollbarSlider.activeBackground": vary(palette.shade5,palette.shade4),
+      "scrollbarSlider.background": vary(chroma(palette.shade5).alpha(0.2).hex(), chroma(palette.shade4).alpha(0.2).hex()),
+      "scrollbarSlider.hoverBackground": vary(chroma(palette.shade5).alpha(0.25).hex(), chroma(palette.shade4).alpha(0.25).hex()),
+      "scrollbarSlider.activeBackground": vary(chroma(palette.shade5).alpha(0.6).hex(), chroma(palette.shade4).alpha(0.6).hex()),
       "editorOverviewRuler.border": vary(palette.shade7, darkWorkbenchBorder),
 
       "panel.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
