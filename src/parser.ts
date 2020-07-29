@@ -28,22 +28,40 @@ const questions = [
   choices: ['yes', 'no']
 },
 {
-  name: 'palette',
-  type: 'list',
-  message: 'Do you want to use the default palette?',
-  choices: ['yes', 'no']
-},
-{
   name: 'customStyle',
   type: 'input',
   message: 'Enter in the style you wish to use',
   when: (answers) => answers.style === 'no'
 },
 {
+  name: 'variantProvided',
+  type: 'list',
+  message: 'Do you want to provide a variant',
+  choices: ['yes', 'no']
+},
+{
+  name: 'variant',
+  type: 'list',
+  message: 'Please select a variant of the style you wish to use',
+  choices: ['light', 'dark'],
+  when: (answers) => answers.variantProvided === 'yes'
+},
+{
+  name: 'palette',
+  type: 'list',
+  message: 'Do you want to use the default palette?',
+  choices: ['yes', 'no']
+},
+{
   name: 'customPalette',
   type: 'input',
   message: 'Enter in the palette you wish to use',
   when: (answers) => answers.palette === 'no'
+},
+{
+  name: 'outputPath',
+  type: 'input',
+  message: 'Please enter the path where you want to output your theme(leave blank for default)'
 }
 ];
 
@@ -55,7 +73,8 @@ export async function parse() {
       s: 'style',
       a: 'all',
       v: 'variant',
-      n: 'name'
+      n: 'name',
+      o: 'output'
     },
   });
 
@@ -95,9 +114,6 @@ export async function parse() {
 function _initialize(config) {
   const style = config.style;
   const palette = config.palette;
-  console.log('initalizing repo');
-  console.log(style);
-  console.log(palette);
   if (palette) {
     create('palette');
   }
@@ -124,11 +140,14 @@ function _build(args) {
 
 async function _runPrompt() {
   const answers = await inquirer.prompt(questions);
-  const {name, customStyle, customPalette} = answers;
+  const {name, customStyle, customPalette, variant, outputPath} = answers;
   const options: ICliOptions = {
     themeName: name,
     style: customStyle,
-    palette: customPalette
+    palette: customPalette,
+    variant,
+    outputPath
+
   }
   return options;
 }
@@ -143,6 +162,8 @@ function _buildConfig(args) {
     themeName: args.name,
     style: (vsctbProvidesAll ? true : args.style),
     palette: (vsctbProvidesAll ? true : args.palette),
+    variant: args.variant,
+    outputPath: args.outputPath
   }
   return options;
 }

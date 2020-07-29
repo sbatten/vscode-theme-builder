@@ -20,14 +20,15 @@ export function build(palette: any, style: any, name: string, outDir: string, va
     if (variant === undefined || v === variant) {
       const theme = style.createTheme(palette, v);
       const outputPath = path.join(outDir, `vsctb-theme-${name}-${v}.json`);
-      fs.writeFileSync(outputPath,
-        JSON.stringify({
+      fs.ensureFileSync(outputPath);
+      fs.writeJSONSync(outputPath,
+        {
           name,
           type: v,
           colors: theme.colors,
           tokenColors: theme.tokenColors,
           semanticHighlighting: theme.semanticHighlighting
-        }, null, 2)
+        }
       );
     }
   });
