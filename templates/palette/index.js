@@ -8,7 +8,7 @@ const colors = {
   orange: "#fb8532", //1
   yellow: "#ffdf5d", //2
   green: "#34d058", //3
-  cyan: "#2188ff", //4
+  cyan: "#17E5E6", //4
   blue: "#2188ff", //5
   purple: "#8a63d2", //6
   magnenta: "#ec6cb9",//7
@@ -17,6 +17,7 @@ const colors = {
   accent0: "#34d058",
   accent1: "#2188ff",
   accent2: "#fb8532",
+  accent3: "#17E5E6"
 
   // Background to Foreground Spectrum
   // Sort from darkest to brightest
