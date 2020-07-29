@@ -61,7 +61,7 @@ export async function parse() {
 
   const mode = args._;
   console.log(args);
-  if (mode.length == 0) {
+  if (mode.length == 0 && !args.help) {
     const config = await _runPrompt();
     console.log(`propmt with config ${JSON.stringify(config)}`)
     _initialize({

@@ -17,7 +17,8 @@
   },
   "scripts": {
     "build": "tsc && copyfiles templates/**/* dist",
-    "compile": "tsc ./src/**.ts"
+    "compile": "tsc ./src/**.ts",
+    "testUsage": "tsc && vsctb --help"
   },
   "bin": {
     "vsctb": "dist/index.js"
