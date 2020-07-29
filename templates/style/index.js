@@ -197,7 +197,7 @@ function createTheme(palette, variant) {
           "string.comment"
         ],
         settings: {
-          foreground: palette.shade3,
+          foreground: vary(palette.shade3, palette.shade3),
         },
       },
       {
@@ -208,7 +208,7 @@ function createTheme(palette, variant) {
           "variable.language",
         ],
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
@@ -217,7 +217,7 @@ function createTheme(palette, variant) {
           "entity.name"
         ],
         settings: {
-          foreground: chroma(palette.purple).darken().hex(),
+          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).brighten(2).hex())
         },
       },
       {
@@ -229,13 +229,13 @@ function createTheme(palette, variant) {
       {
         scope: "entity.name.tag",
         settings: {
-          foreground: chroma(palette.green).darken(2).hex(),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
         },
       },
       {
         scope: "keyword",
         settings: {
-          foreground: chroma(palette.red).darken(1).hex(),
+          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(2).hex())
         },
       },
       {
@@ -244,7 +244,7 @@ function createTheme(palette, variant) {
           "storage.type"
         ],
         settings: {
-          foreground: chroma(palette.red).darken(1).hex(),
+          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(2).hex()),
         },
       },
       {
@@ -264,25 +264,25 @@ function createTheme(palette, variant) {
           "string punctuation.section.embedded source",
         ],
         settings: {
-          foreground: chroma(palette.blue).darken(4).hex(),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "support",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "meta.property-name",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "variable",
         settings: {
-          foreground: chroma(palette.orange).darken(2).hex(),
+          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
         },
       },
       {
@@ -295,35 +295,35 @@ function createTheme(palette, variant) {
         scope: "invalid.broken",
         settings: {
           fontStyle: "italic",
-          foreground: chroma(palette.red).darken(3).hex(),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
         scope: "invalid.deprecated",
         settings: {
           fontStyle: "italic",
-          foreground: chroma(palette.red).darken(3).hex(),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
         scope: "invalid.illegal",
         settings: {
           fontStyle: "italic",
-          foreground: chroma(palette.red).darken(3).hex(),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
         scope: "invalid.unimplemented",
         settings: {
           fontStyle: "italic",
-          foreground: chroma(palette.red).darken(3).hex(),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
         scope: "carriage-return",
         settings: {
           fontStyle: "italic underline",
-          background: chroma(palette.red).darken(1).hex(),
+          background: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(2).hex()),
           foreground: palette.white,
           content: "^M",
         },
@@ -331,7 +331,7 @@ function createTheme(palette, variant) {
       {
         scope: "message.error",
         settings: {
-          foreground: chroma(palette.red).darken(3).hex(),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
@@ -343,13 +343,13 @@ function createTheme(palette, variant) {
       {
         scope: "string variable",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: ["source.regexp", "string.regexp"],
         settings: {
-          foreground: chroma(palette.blue).darken(4).hex(),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(4).hex()),
         },
       },
       {
@@ -360,51 +360,51 @@ function createTheme(palette, variant) {
           "string.regexp string.regexp.arbitrary-repitition",
         ],
         settings: {
-          foreground: chroma(palette.blue).darken(4).hex(),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(4).hex()),
         },
       },
       {
         scope: "string.regexp constant.character.escape",
         settings: {
           fontStyle: "bold",
-          foreground: chroma(palette.green).darken(2).hex(),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
         },
       },
       {
         scope: "support.constant",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "support.variable",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "meta.module-reference",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "punctuation.definition.list.begin.markdown",
         settings: {
-          foreground: chroma(palette.orange).darken(2).hex(),
+          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
         },
       },
       {
         scope: ["markup.heading", "markup.heading entity.name"],
         settings: {
           fontStyle: "bold",
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "markup.quote",
         settings: {
-          foreground: chroma(palette.green).darken(2).hex(),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
         },
       },
       {
@@ -424,7 +424,7 @@ function createTheme(palette, variant) {
       {
         scope: "markup.raw",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
@@ -434,8 +434,8 @@ function createTheme(palette, variant) {
           "punctuation.definition.deleted",
         ],
         settings: {
-          background: chroma(palette.red).brighten(4).hex(),
-          foreground: chroma(palette.red).darken(3).hex(),
+          background: vary(chroma(palette.red).brighten(4).hex(), chroma(palette.red).darken(4).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
@@ -445,48 +445,48 @@ function createTheme(palette, variant) {
           "punctuation.definition.inserted",
         ],
         settings: {
-          background: chroma(palette.green).brighten(4).hex(),
-          foreground: chroma(palette.green).darken(2).hex(),
+          background: vary(chroma(palette.green).brighten(4).hex(), chroma(palette.green).darken(4).hex()),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
         },
       },
       {
         scope: ["markup.changed", "punctuation.definition.changed"],
         settings: {
-          background: chroma(palette.orange).brighten(3).hex(),
-          foreground: chroma(palette.orange).darken(2).hex(),
+          background: vary(chroma(palette.orange).brighten(3).hex(), chroma(palette.orange).darken(3).hex()),
+          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
         },
       },
       {
         scope: ["markup.ignored", "markup.untracked"],
         settings: {
-          foreground: palette.shade6,
-          background: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(palette.shade6, palette.shade1),
+          background: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "meta.diff.range",
         settings: {
-          foreground: chroma(palette.purple).darken().hex(),
+          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).brighten(2).hex()),
           fontStyle: "bold",
         },
       },
       {
         scope: "meta.diff.header",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "meta.separator",
         settings: {
           fontStyle: "bold",
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "meta.output",
         settings: {
-          foreground: chroma(palette.blue).darken(2).hex(),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
@@ -499,19 +499,19 @@ function createTheme(palette, variant) {
           "brackethighlighter.quote",
         ],
         settings: {
-          foreground: palette.shade2,
+          foreground: vary(palette.shade2, palette.shade5),
         },
       },
       {
         scope: "brackethighlighter.unmatched",
         settings: {
-          foreground: chroma(palette.red).darken(3).hex(),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
         },
       },
       {
         scope: ["constant.other.reference.link", "string.other.link"],
         settings: {
-          foreground: chroma(palette.blue).darken(4).hex(),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(4).hex()),
           fontStyle: "underline",
         },
       },
