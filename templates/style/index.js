@@ -1,7 +1,10 @@
 const chroma = require("chroma-js");
 function createTheme(palette, variant) {
   const vary = (light, dark) => variant === 'light' ? light : dark;
-  const invert = (c) => chroma(c).hsl().lightness(100 - chroma(c).lightness()).hex();
+  const invert = (c) => {
+    const lightness = chroma(c).get('hsl.l');
+    return chroma(c).set('hsl.l', 100 - lightness).hex();
+  }
   
   var workbenchForeground = vary(palette.shade1, palette.shade5);
   var editorForeground = vary(palette.shade0, palette.shade5);
@@ -46,7 +49,7 @@ function createTheme(palette, variant) {
       "titleBar.activeForeground": workbenchForeground,
       "titleBar.activeBackground": vary(palette.shade7, palette.shade0),
       "titleBar.inactiveForeground": vary(palette.shade3, palette.shade4),
-      "titleBar.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
+      "titleBar.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "titleBar.border": vary(palette.shade5, palette.shade0),
 
       "activityBar.foreground": workbenchForeground,
@@ -57,12 +60,12 @@ function createTheme(palette, variant) {
       "activityBar.activeBorder": chroma(palette.accent2).brighten().hex(),
       "activityBar.border": vary(palette.shade5, palette.shade0),
 
-      "sideBar.foreground": palette.shade2,
-      "sideBar.background": vary(palette.shade6, palette.shade3),
+      "sideBar.foreground": vary(palette.shade2, palette.shade5),
+      "sideBar.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "sideBar.border": vary(palette.shade5, palette.shade0),
       "sideBarTitle.foreground": workbenchForeground,
       "sideBarSectionHeader.foreground": workbenchForeground,
-      "sideBarSectionHeader.background": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
+      "sideBarSectionHeader.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "sideBarSectionHeader.border": vary(palette.shade5, palette.shade0),
 
       "list.hoverForeground": workbenchForeground,
@@ -71,13 +74,13 @@ function createTheme(palette, variant) {
       "list.hoverBackground": vary(palette.shade6, palette.shade0),
       "list.inactiveSelectionBackground": vary(palette.shade5, palette.shade0),
       "list.activeSelectionBackground": vary(palette.shade4, palette.shade1),
-      "list.inactiveFocusBackground": vary(chroma(palette.accent1).brighten(3).hex(), chroma(palette.shade0).darken().hex()),
+      "list.inactiveFocusBackground": vary(chroma(palette.accent1).brighten(3).hex(), chroma(palette.shade0).darken(.1).hex()),
       "list.focusBackground": vary(chroma(palette.accent1).brighten(4).hex(), chroma(palette.accent1).darken(2).hex()),
 
       "tree.indentGuidesStroke": vary(palette.shade5, palette.shade1),
 
       "notificationCenterHeader.foreground": vary(palette.shade3, palette.shade4),
-      "notificationCenterHeader.background": varYy(palette.shade5, palette.shade0),
+      "notificationCenterHeader.background": vary(palette.shade5, palette.shade0),
       "notifications.foreground": workbenchForeground,
       "notifications.background": vary(palette.shade7, palette.shade1),
       "notifications.border": vary(palette.shade5, palette.shade0),
@@ -97,13 +100,13 @@ function createTheme(palette, variant) {
       "statusBar.debuggingBackground": invert(palette.accent2),
       "statusBar.debuggingForeground": vary(palette.shade7, palette.shade7),
 
-      "editorGroupHeader.tabsBackground": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
+      "editorGroupHeader.tabsBackground": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "editorGroupHeader.tabsBorder": vary(palette.shade5, palette.shade0),
       "editorGroup.border": vary(palette.shade5, palette.shade0),
 
       "tab.activeForeground": workbenchForeground,
       "tab.inactiveForeground": vary(palette.shade3, palette.shade4),
-      "tab.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
+      "tab.inactiveBackground": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "tab.activeBackground": vary(palette.shade7, palette.shade0),
       "tab.hoverBackground": vary(palette.shade7, palette.shade0),
       "tab.unfocusedHoverBackground": vary(palette.shade7, palette.shade0),
@@ -120,9 +123,9 @@ function createTheme(palette, variant) {
 
       "editor.foreground": editorForeground,
       "editor.background": vary(palette.shade7, palette.shade0),
-      "editorWidget.background": vary(palette.shade6, chroma(palette.shade0).darken().hex()),
+      "editorWidget.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "editor.foldBackground": vary(palette.shade7, chroma(palette.shade1).darken(1).hex()),
-      "editor.lineHighlightBackground": ary(palette.shade6, chroma(palette.shade1).darken(0.5).hex()),
+      "editor.lineHighlightBackground": vary(palette.shade6, chroma(palette.shade1).darken(0.5).hex()),
       "editorLineNumber.foreground": vary(palette.shade5, palette.shade2),
       "editorLineNumber.activeForeground": editorForeground,
       "editorIndentGuide.background": vary(palette.shade6, palette.shade1),
@@ -130,11 +133,11 @@ function createTheme(palette, variant) {
       "editorWhitespace.foreground": vary(palette.shade5, palette.shade2),
       "editorCursor.foreground": vary(chroma(palette.accent1).darken(3).hex(), chroma(palette.blue).brighten(3).hex()),
 
-      "editor.findMatchBackground": vary(palette.yellow, chroma(palette.yellow).lighten(1).hex()),
+      "editor.findMatchBackground": vary(palette.yellow, chroma(palette.yellow).brighten(1).hex()),
       "editor.findMatchHighlightBackground": vary(chroma(palette.yellow).alpha(.4).hex(), chroma(palette.yellow).alpha(0.3).hex()),
       "editor.inactiveSelectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.1).hex(), chroma(palette.accent1).darken(1.5).alpha(.1).hex()),
-      "editor.selectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.2).hex(), chromma(palette.accent1).darken(2).alpha(.2).hex()),
-      "editor.selectionHighlightBackground": vary(chroma(palette.accent0).alpha(.3).hex(), chroma(palette.accent3).lighten(2).hex()),
+      "editor.selectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.2).hex(), chroma(palette.accent1).darken(2).alpha(.2).hex()),
+      "editor.selectionHighlightBackground": vary(chroma(palette.accent0).alpha(.3).hex(), chroma(palette.accent3).brighten(2).hex()),
       "editor.selectionHighlightBorder": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
       "editor.wordHighlightBackground": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
       "editor.wordHighlightStrongBackground": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
@@ -157,7 +160,7 @@ function createTheme(palette, variant) {
       "scrollbarSlider.activeBackground": vary(palette.shade5,palette.shade4),
       "editorOverviewRuler.border": vary(palette.shade7, palette.shade0),
 
-      "panel.background": vary(palette.shade6, chroma(palette.shade0).darken(2).hex()),
+      "panel.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "panel.border": vary(palette.shade5, palette.shade0),
       "panelTitle.activeBorder": vary(chroma(palette.accent2).darken(2).hex(),chroma(palette.accent2).darken(2).hex()),
       "panelTitle.activeForeground": workbenchForeground,
