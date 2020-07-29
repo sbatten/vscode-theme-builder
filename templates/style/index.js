@@ -113,10 +113,10 @@ function createTheme(palette, variant) {
       "tab.unfocusedActiveBorder": palette.shade7,
       "tab.activeBorderTop": palette.accent2,
 
-      "breadcrumb.foreground": palette.shade3,
+      "breadcrumb.foreground": vary(palette.shade3, palette.shade4),
       "breadcrumb.focusForeground": workbenchForeground,
-      "breadcrumb.activeSelectionForeground": palette.shade2,
-      "breadcrumbPicker.background": palette.shade7,
+      "breadcrumb.activeSelectionForeground": vary(palette.shade2, palette.shade5),
+      "breadcrumbPicker.background": vary(palette.shade7, palette.shade0),
 
       "editor.foreground": editorForeground,
       "editor.background": vary(palette.shade7, palette.shade0),
