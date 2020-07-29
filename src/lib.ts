@@ -28,7 +28,9 @@ function transformPalette(palette) {
 function transformObjectToString(obj) {
   const ret = {};
   for (let key of Object.keys(obj)) {
-    ret[key] = obj[key].hex();
+    if (!!obj[key] && typeof obj[key].hex === 'function') {
+      ret[key] = obj[key].hex();
+    }
   }
 
   return ret;
