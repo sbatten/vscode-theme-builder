@@ -5,6 +5,13 @@ function createTheme(palette, variant) {
     const lightness = chroma(c).get('hsl.l');
     return chroma(c).set('hsl.l', 100 - lightness).hex();
   }
+
+  const shift = (c, h, s, l) => {
+    const hue = (chroma(c).get('hsl.h') + h + 360) % 360;
+    const saturation = Math.max(0, Math.min(1.0, (chroma(c).get('hsl.s') + s)));
+    const lightness = Math.max(0, Math.min(1.0, (chroma(c).get('hsl.l') + l)));
+    return chroma.hsl(hue, saturation, lightness).hex();
+  }
   
   var workbenchForeground = vary(palette.shade1, palette.shade5);
   var editorForeground = vary(palette.shade0, palette.shade5);
@@ -58,7 +65,7 @@ function createTheme(palette, variant) {
       "activityBar.background": vary(palette.shade7, palette.shade0),
       "activityBarBadge.foreground": vary(palette.shade7, palette.shade7),
       "activityBarBadge.background": vary(palette.accent1, palette.accent1),
-      "activityBar.activeBorder": chroma(palette.accent2).brighten().hex(),
+      "activityBar.activeBorder": shift(palette.accent2, -16, -.04, .11),
       "activityBar.border": vary(palette.shade5, darkWorkbenchBorder),
 
       "sideBar.foreground": vary(palette.shade2, palette.shade5),
@@ -115,7 +122,7 @@ function createTheme(palette, variant) {
       "tab.unfocusedActiveBorderTop": vary(palette.shade5, palette.shade0),
       "tab.activeBorder": vary(palette.shade7, palette.shade0),
       "tab.unfocusedActiveBorder": vary(palette.shade7, palette.shade0),
-      "tab.activeBorderTop": vary(palette.accent2, palette.accent2),
+      "tab.activeBorderTop": shift(palette.accent2, -16, -.04, .11),
 
       "breadcrumb.foreground": vary(palette.shade3, palette.shade4),
       "breadcrumb.focusForeground": workbenchForeground,
@@ -163,7 +170,7 @@ function createTheme(palette, variant) {
 
       "panel.background": vary(palette.shade6, chroma(palette.shade0).darken(.1).hex()),
       "panel.border": vary(palette.shade5, darkWorkbenchBorder),
-      "panelTitle.activeBorder": vary(chroma(palette.accent2).darken(2).hex(),chroma(palette.accent2).darken(2).hex()),
+      "panelTitle.activeBorder": shift(palette.accent2, -16, -.04, .11),
       "panelTitle.activeForeground": workbenchForeground,
       "panelTitle.inactiveForeground": vary(palette.shade3, palette.shade4),
       "panelInput.border": vary(palette.shade5, palette.shade1),
