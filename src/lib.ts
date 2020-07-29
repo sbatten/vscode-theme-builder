@@ -19,7 +19,7 @@ export function build(palette: any, style: any, name: string, outDir: string, va
   ['light', 'dark'].forEach(v => {
     if (variant === undefined || v === variant) {
       const theme = style.createTheme(palette, v);
-      const outputPath = path.join(outDir, `vsctb-theme-${name}-${v}.json`);
+      const outputPath = path.join(outDir, `${name}-${v}.json`);
       fs.ensureFileSync(outputPath);
       fs.writeJSONSync(outputPath,
         {
