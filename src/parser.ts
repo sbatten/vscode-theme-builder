@@ -150,6 +150,15 @@ function buildFromOptions(options: IBuildOptions) {
 }
 
 async function runPrompt(): Promise<ICliOptions> {
+  const message = " /$$    /$$  /$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$\n\
+| $$   | $$ /$$__  $$ /$$__  $$|__  $$__/| $$__  $$\n\
+| $$   | $$| $$  \\__/| $$  \\__/   | $$   | $$  \\ $$\n\
+|  $$ / $$/|  $$$$$$ | $$         | $$   | $$$$$$$\n\
+ \\  $$ $$/  \\____  $$| $$         | $$   | $$__  $$\n\
+  \\  $$$/   /$$  \\ $$| $$    $$   | $$   | $$  \\ $$\n\
+   \\  $/   |  $$$$$$/|  $$$$$$/   | $$   | $$$$$$$/\n\
+    \\_/     \\______/  \\______/    |__/   |_______/\n";
+  console.log(message);
   const answers = await inquirer.prompt(questions);
   const { name, styleModule, paletteModule, variant, outputPath } = answers;
   const options: ICliOptions = {
