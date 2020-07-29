@@ -1,5 +1,6 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import chroma = require('chroma-js');
 
 
 export function create(type: 'style' | 'palette' | 'all') {
@@ -15,19 +16,56 @@ export function create(type: 'style' | 'palette' | 'all') {
   }
 }
 
+function transformPalette(palette) {
+  const ret = {};
+  for (let key of Object.keys(palette)) {
+    ret[key] = chroma(palette[key]);
+  }
+
+  return ret;
+}
+
+function transformObjectToString(obj) {
+  const ret = {};
+  for (let key of Object.keys(obj)) {
+    ret[key] = obj[key].hex();
+  }
+
+  return ret;
+}
+
+function transformTheme(theme): any {
+  const ret = {};
+  ret['colors'] = transformObjectToString(theme.colors);
+  ret['semanticHighlighting'] = theme.semanticHighlighting;
+
+  ret['tokenColors'] = [];
+  for (const token of theme.tokenColors) {
+    ret['tokenColors'].push(token);
+    token.settings = transformObjectToString(token.settings);
+  }
+
+  return ret;
+}
+
 export function build(palette: any, style: any, name: string, outDir: string, variant?: 'light' | 'dark') {
   ['light', 'dark'].forEach(v => {
     if (variant === undefined || v === variant) {
-      const theme = style.createTheme(palette, v);
+      const newPalette = transformPalette(palette);
+
+      const theme = style.createTheme(newPalette, v);
+      const newTheme = transformTheme(theme);
+
+
       const outputPath = path.join(outDir, `${name.toLocaleLowerCase().replace(/\s+/, "-")}-${v}.json`);
       fs.ensureFileSync(outputPath);
       fs.writeJSONSync(outputPath,
         {
           name,
           type: v,
-          colors: theme.colors,
-          tokenColors: theme.tokenColors,
-          semanticHighlighting: theme.semanticHighlighting
+          colors: newTheme.colors,
+          tokenColors: newTheme.tokenColors,
+          semanticHighlighting: newTheme.semanticHighlighting
         },
         { spaces: 2 }
       );
