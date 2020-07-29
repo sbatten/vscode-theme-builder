@@ -19,49 +19,42 @@ const questions = [
 {
   name: 'name',
   type: 'input',
-  message: 'Project name:'
+  message: 'Theme name:'
 },
 {
   name: 'style',
   type: 'list',
-  message: 'Do you want to use the default style?',
-  choices: ['yes', 'no']
+  message: 'Do you want to create your own style or use a pre-existing style?',
+  choices: ['Create my own', 'Use a pre-existing style module']
 },
 {
   name: 'customStyle',
   type: 'input',
-  message: 'Enter in the style you wish to use',
-  when: (answers) => answers.style === 'no'
-},
-{
-  name: 'variantProvided',
-  type: 'list',
-  message: 'Do you want to provide a variant',
-  choices: ['yes', 'no']
+  message: 'Enter in the module name of style you wish to use:',
+  when: (answers) => answers.style === 'Use a pre-existing style module'
 },
 {
   name: 'variant',
   type: 'list',
-  message: 'Please select a variant of the style you wish to use',
-  choices: ['light', 'dark'],
-  when: (answers) => answers.variantProvided === 'yes'
+  message: 'Which type of theme will you create?',
+  choices: ['both', 'dark', 'light']
 },
 {
   name: 'palette',
   type: 'list',
-  message: 'Do you want to use the default palette?',
-  choices: ['yes', 'no']
+  message: 'Do you want to create your own color palette or use a pre-existing color palette?',
+  choices: ['Create my own', 'Use a pre-existing color palette module']
 },
 {
   name: 'customPalette',
   type: 'input',
-  message: 'Enter in the palette you wish to use',
-  when: (answers) => answers.palette === 'no'
+  message: 'Enter in the module name of color palette you wish to use:',
+  when: (answers) => answers.palette === 'Use a pre-existing color palette module'
 },
 {
   name: 'outputPath',
   type: 'input',
-  message: 'Please enter the path where you want to output your theme(leave blank for default)'
+  message: 'Please enter the directory path where you want to output your theme: (./themes)'
 }
 ];
 
