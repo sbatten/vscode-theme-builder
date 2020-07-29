@@ -212,7 +212,7 @@ function createTheme(palette, variant) {
           "variable.language",
         ],
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
@@ -221,7 +221,7 @@ function createTheme(palette, variant) {
           "entity.name"
         ],
         settings: {
-          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).brighten(2).hex())
+          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).brighten().hex())
         },
       },
       {
@@ -233,13 +233,13 @@ function createTheme(palette, variant) {
       {
         scope: "entity.name.tag",
         settings: {
-          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten().hex()),
         },
       },
       {
         scope: "keyword",
         settings: {
-          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(2).hex())
+          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten().hex())
         },
       },
       {
@@ -248,7 +248,7 @@ function createTheme(palette, variant) {
           "storage.type"
         ],
         settings: {
-          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(2).hex()),
+          foreground: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten().hex()),
         },
       },
       {
@@ -268,25 +268,25 @@ function createTheme(palette, variant) {
           "string punctuation.section.embedded source",
         ],
         settings: {
-          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "support",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "meta.property-name",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "variable",
         settings: {
-          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
+          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten().hex()),
         },
       },
       {
@@ -299,35 +299,35 @@ function createTheme(palette, variant) {
         scope: "invalid.broken",
         settings: {
           fontStyle: "italic",
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
         scope: "invalid.deprecated",
         settings: {
           fontStyle: "italic",
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
         scope: "invalid.illegal",
         settings: {
           fontStyle: "italic",
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
         scope: "invalid.unimplemented",
         settings: {
           fontStyle: "italic",
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
         scope: "carriage-return",
         settings: {
           fontStyle: "italic underline",
-          background: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten(2).hex()),
+          background: vary(chroma(palette.red).darken(1).hex(), chroma(palette.red).brighten().hex()),
           foreground: palette.white,
           content: "^M",
         },
@@ -335,7 +335,7 @@ function createTheme(palette, variant) {
       {
         scope: "message.error",
         settings: {
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
@@ -347,13 +347,13 @@ function createTheme(palette, variant) {
       {
         scope: "string variable",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: ["source.regexp", "string.regexp"],
         settings: {
-          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(4).hex()),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
@@ -364,51 +364,51 @@ function createTheme(palette, variant) {
           "string.regexp string.regexp.arbitrary-repitition",
         ],
         settings: {
-          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(4).hex()),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(2).hex()),
         },
       },
       {
         scope: "string.regexp constant.character.escape",
         settings: {
           fontStyle: "bold",
-          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten().hex()),
         },
       },
       {
         scope: "support.constant",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "support.variable",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "meta.module-reference",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "punctuation.definition.list.begin.markdown",
         settings: {
-          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
+          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten().hex()),
         },
       },
       {
         scope: ["markup.heading", "markup.heading entity.name"],
         settings: {
           fontStyle: "bold",
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "markup.quote",
         settings: {
-          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten().hex()),
         },
       },
       {
@@ -428,7 +428,7 @@ function createTheme(palette, variant) {
       {
         scope: "markup.raw",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
@@ -439,7 +439,7 @@ function createTheme(palette, variant) {
         ],
         settings: {
           background: vary(chroma(palette.red).brighten(4).hex(), chroma(palette.red).darken(4).hex()),
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
@@ -450,47 +450,47 @@ function createTheme(palette, variant) {
         ],
         settings: {
           background: vary(chroma(palette.green).brighten(4).hex(), chroma(palette.green).darken(4).hex()),
-          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten(2).hex()),
+          foreground: vary(chroma(palette.green).darken(2).hex(), chroma(palette.green).brighten().hex()),
         },
       },
       {
         scope: ["markup.changed", "punctuation.definition.changed"],
         settings: {
           background: vary(chroma(palette.orange).brighten(3).hex(), chroma(palette.orange).darken(3).hex()),
-          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten(2).hex()),
+          foreground: vary(chroma(palette.orange).darken(2).hex(), chroma(palette.orange).brighten().hex()),
         },
       },
       {
         scope: ["markup.ignored", "markup.untracked"],
         settings: {
           foreground: vary(palette.shade6, palette.shade1),
-          background: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          background: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "meta.diff.range",
         settings: {
-          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).brighten(2).hex()),
+          foreground: vary(chroma(palette.purple).darken().hex(), chroma(palette.purple).brighten().hex()),
           fontStyle: "bold",
         },
       },
       {
         scope: "meta.diff.header",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "meta.separator",
         settings: {
           fontStyle: "bold",
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
         scope: "meta.output",
         settings: {
-          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten(2).hex()),
+          foreground: vary(chroma(palette.blue).darken(2).hex(), chroma(palette.blue).brighten().hex()),
         },
       },
       {
@@ -509,13 +509,13 @@ function createTheme(palette, variant) {
       {
         scope: "brackethighlighter.unmatched",
         settings: {
-          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(3).hex()),
+          foreground: vary(chroma(palette.red).darken(3).hex(), chroma(palette.red).brighten(1.5).hex()),
         },
       },
       {
         scope: ["constant.other.reference.link", "string.other.link"],
         settings: {
-          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(4).hex()),
+          foreground: vary(chroma(palette.blue).darken(4).hex(), chroma(palette.blue).brighten(2).hex()),
           fontStyle: "underline",
         },
       },
