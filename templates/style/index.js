@@ -133,11 +133,11 @@ function createTheme(palette, variant) {
       "editorWhitespace.foreground": vary(palette.shade5, palette.shade5),
       "editorCursor.foreground": chroma(palette.accent1).darken(3).hex(),
 
-      "editor.findMatchBackground": vary(palette.yellow, chroma(palette.yellow).lighten(1).hex()),
+      "editor.findMatchBackground": vary(palette.yellow, chroma(palette.yellow).brighten(1).hex()),
       "editor.findMatchHighlightBackground": vary(chroma(palette.yellow).alpha(.4).hex(), chroma(palette.yellow).alpha(0.3).hex()),
       "editor.inactiveSelectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.1).hex(), chroma(palette.accent1).darken(1.5).alpha(.1).hex()),
       "editor.selectionBackground": vary(chroma(palette.accent1).darken(1).alpha(.2).hex(), chromma(palette.accent1).darken(2).alpha(.2).hex()),
-      "editor.selectionHighlightBackground": vary(chroma(palette.accent0).alpha(.3).hex(), chroma(palette.accent3).lighten(2).hex()),
+      "editor.selectionHighlightBackground": vary(chroma(palette.accent0).alpha(.3).hex(), chroma(palette.accent3).brighten(2).hex()),
       "editor.selectionHighlightBorder": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
       "editor.wordHighlightBackground": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
       "editor.wordHighlightStrongBackground": vary(chroma(palette.accent0).alpha(0).hex(), chroma(palette.accent3).alpha(0).hex()),
