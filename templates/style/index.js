@@ -32,9 +32,9 @@ function createTheme(palette, variant) {
       "textPreformat.foreground": vary(palette.shade2, palette.shade5),
       "textSeparator.foreground": vary(palette.shade5, palette.shade2),
 
-      "button.background": vary(chroma(palette.accent0).darken(1).hex(), chroma(palette.green).darken(2).hex()),
-      "button.foreground": vary(palette.shade7, chroma(palette.green).brighten(4).hex()),
-      "button.hoverBackground": vary(chroma(palette.accent0).brighten().hex(), chroma(palette.green).darken(1).hex()),
+      "button.background": vary(chroma(palette.accent0).darken(1).hex(), chroma(palette.accent0).darken(2).hex()),
+      "button.foreground": vary(palette.shade7, chroma(palette.accent0).brighten(4).hex()),
+      "button.hoverBackground": vary(chroma(palette.accent0).brighten().hex(), chroma(palette.accent0).darken(1.9).hex()),
 
       "checkbox.background": vary(palette.shade7, palette.shade2),
       "checkbox.border": vary(palette.shade5, darkWorkbenchBorder),
