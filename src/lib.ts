@@ -1,18 +1,26 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import { execSync } from 'child_process';
 import chroma = require('chroma-js');
 
 
-export function create(type: 'style' | 'palette' | 'all') {
+
+export function create(type: 'style' | 'palette') {
   switch (type) {
     case 'style':
-      fs.copySync(path.join(__dirname, 'templates/style'), path.join(process.cwd(), 'style/'));
+      // Copy sample style and npm install its dependencies
+      const dest = path.join(process.cwd(), 'style/');
+      fs.copySync(path.join(__dirname, 'templates/style'), dest);
+
+      execSync('npm install --no-package-lock', {
+        cwd: path.join(process.cwd(), 'style/')
+      });
+
       break;
     case 'palette':
+      // Copy sample palette (has no dependencies)
       fs.copySync(path.join(__dirname, 'templates/palette'), path.join(process.cwd(), 'palette/'));
       break;
-    default:
-      fs.copySync(path.join(__dirname, 'templates/'), process.cwd(), { recursive: true });
   }
 }
 
