@@ -11,6 +11,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "chroma-js": "^2.1.0",
     "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
