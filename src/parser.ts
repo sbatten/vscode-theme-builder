@@ -1,4 +1,4 @@
-import * as parseArgs from 'minimist';
+import * as yargs from 'yargs-parser';
 import * as path from 'path';
 import * as inquirer from 'inquirer';
 import * as fs from 'fs-extra';
@@ -71,7 +71,7 @@ const questions = [
 ];
 
 export async function parse() {
-  const args = parseArgs(process.argv.slice(2), {
+  const args = yargs(process.argv.slice(2), {
     alias: {
       h: 'help',
       p: 'palette',
