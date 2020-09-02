@@ -3,8 +3,6 @@ import * as path from 'path';
 import { execSync } from 'child_process';
 import chroma = require('chroma-js');
 
-
-
 export function create(type: 'style' | 'palette') {
   switch (type) {
     case 'style':
