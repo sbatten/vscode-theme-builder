@@ -150,7 +150,8 @@ function buildFromOptions(options: IBuildOptions) {
 }
 
 async function runPrompt(): Promise<ICliOptions> {
-  const message = " /$$    /$$  /$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$\n\
+  const message = "\
+ /$$    /$$  /$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$\n\
 | $$   | $$ /$$__  $$ /$$__  $$|__  $$__/| $$__  $$\n\
 | $$   | $$| $$  \\__/| $$  \\__/   | $$   | $$  \\ $$\n\
 |  $$ / $$/|  $$$$$$ | $$         | $$   | $$$$$$$\n\
